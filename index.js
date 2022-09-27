@@ -12,8 +12,8 @@
 // 2.- if user presses "key-operator"
 // 4.- check decimal and operator are not pressed more than once
 // Additional:
-// no more than 9 characters per number
-// value rounded to 4 decimals
+// -no more than 9 characters per number
+// -value rounded to 4 decimals
 
 const keyValNum = document.querySelectorAll(".keyNum");
 console.log(keyValNum);

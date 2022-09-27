@@ -38,28 +38,31 @@ h4 {
   transition: opacity 0.6s;
   margin-bottom: 15px;
 }
+@media only screen and (max-width:800px) {
+  h1 {
+    align-items: center;
+    text-align: center;
+    font-size: 35px;
+    padding: 0;
+  }
+  h2 {
+    text-align: center;
+    font-style: italic;
+    font-size: 15px;
+    color: red;
+  }
+  h4 {
+    text-align: center;
+    font-style: italic;
+    padding: 10px 10px 20px 10px;
+    color: grayscale($color: #000000);
+  }
+};
+  
 
-.alert.success {background-color: #04AA6D;}
-.alert.info {background-color: #2196F3;}
-.alert.warning {background-color: #ff9800;}
-
-.closebtn {
-  margin-left: 15px;
-  color: white;
-  font-weight: bold;
-  float: right;
-  font-size: 22px;
-  line-height: 20px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.closebtn:hover {
-  color: black;
-}
 
 main {
-  width: 500px;
+  // width: 500px;
   align-items: center;
   // margin: 10px 200px 50px 200px;
   border-radius: 10px;
@@ -67,10 +70,25 @@ main {
   border: 2px solid #ccc;
   box-sizing: border-box;
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
- 
+
+  @media only screen and (max-width:800px) {
+  width: 450px;
+  align-items: center;
+  // margin: 10px 200px 50px 200px;
+  border-radius: 10px;
+  padding: 0;
+  border: 2px solid #ccc;
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  }
+  
 
   .grid-table {
     grid-gap: 5px;
@@ -92,12 +110,23 @@ main {
       background-color: lightgray;
       // align-items: center;
     }
+    @media only screen and (max-width:800px) {
 
+    }
+
+    
     .box {
       display: grid;
       grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr 1fr;
       grid-gap: 10px;
+      @media only screen and (min-width:800px) {
+          display: grid;
+          grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          grid-gap: 10px;
+
+      }
 
       .key {
         /* grid-area: key; */
@@ -112,6 +141,21 @@ main {
         border-radius: 70%;
         border-style: groove;
         text-align: center;
+
+        @media only screen and (min-width:800px) {
+        width: 30px;
+        margin: auto;
+        padding: 15px;
+        background-color: black;
+        color: whitesmoke;
+        font-size: 15px;
+        font-weight: bold;
+        border: whitesmoke;
+        border-radius: 70%;
+        border-style: groove;
+        text-align: center;
+
+        }
       }
     }
   }
