@@ -1,3 +1,5 @@
+"use strict";
+
 // We start with a screen where:
 //  1.- display is blank
 //  2.- the key is nothing/null:
@@ -14,99 +16,99 @@
 // Additional:
 // -no more than 9 characters per number
 // -value rounded to 4 decimals
-
-const keyValNum = document.querySelectorAll(".keyNum");
+var keyValNum = document.querySelectorAll(".keyNum");
 console.log(keyValNum);
-const keyValMath = document.querySelectorAll(".keyMath");
+var keyValMath = document.querySelectorAll(".keyMath");
 console.log(keyValMath);
-const inputScreen = document.getElementById("inputScreen");
+var inputScreen = document.getElementById("inputScreen");
 console.log(inputScreen);
-const keyValOn = document.querySelector(".keyOn");
+var keyValOn = document.querySelector(".keyOn");
 console.log(keyValOn);
-const keyValOff = document.querySelector(".keyOff");
+var keyValOff = document.querySelector(".keyOff");
 console.log(keyValOff);
-const keyValResult = document.querySelector(".keyResult");
+var keyValResult = document.querySelector(".keyResult");
 console.log(keyValResult);
-const keyValDec = document.querySelector(".keyDec");
+var keyValDec = document.querySelector(".keyDec");
 console.log(keyValDec);
+var num1, num2, opMath, opMathVal; //If ON/C is not click no numbers will show, and will reset exsisting values
 
-let num1, num2, opMath, opMathVal;
-
-//If ON/C is not click no numbers will show, and will reset exsisting values
-keyValOn.addEventListener("click", () => {
+keyValOn.addEventListener("click", function () {
   inputScreen.innerHTML = "0";
   num1 = 0;
-  num2 = 0;
-  // num2Val = false;
+  num2 = 0; // num2Val = false;
+
   opMath = "";
   opMathVal = false;
   console.log(inputScreen.textContent);
   console.log(num1, opMath, num2, opMathVal);
-});
+}); //If OFF is click no numbers will show
 
-//If OFF is click no numbers will show
-keyValOff.addEventListener("click", () => {
+keyValOff.addEventListener("click", function () {
   inputScreen.innerHTML = "";
-  num1, num2, (opMath = "");
+  num1, num2, opMath = "";
   alert("Thank you for using My Basic Pocket Calculator");
 });
 
-const checkIfOn = () => {
+var checkIfOn = function checkIfOn() {
   if (inputScreen.textContent != "") {
     return true;
   } else {
     alert("Please click the ON/C button");
     return false;
   }
-};
+}; // Number Values
 
-// Number Values
-keyValNum.forEach((keyNum) => {
-  keyNum.addEventListener("click", () => {
+
+keyValNum.forEach(function (keyNum) {
+  keyNum.addEventListener("click", function () {
     if (!checkIfOn()) {
       return;
-    }
-    // remove the 0 from the ON/C buttom
+    } // remove the 0 from the ON/C buttom
+
+
     if (inputScreen.innerHTML === "0") {
       inputScreen.innerHTML = "";
     }
-    const keyNumValue = keyNum.textContent;
+
+    var keyNumValue = keyNum.textContent;
     inputScreen.innerHTML += keyNumValue;
   });
-});
+}); // Handeling Math key input
 
-// Handeling Math key input
-keyValMath.forEach((keyMath) => {
-  keyMath.addEventListener("click", () => {
+keyValMath.forEach(function (keyMath) {
+  keyMath.addEventListener("click", function () {
     if (!checkIfOn()) {
       return;
-    }
-    // Set num1 or take what is in display (i.e. math result) as Num1
-    num1 = Number(inputScreen.textContent);
-    // Set  display and opMath
-    const keyMathValue = keyMath.textContent;
+    } // Set num1 or take what is in display (i.e. math result) as Num1
+
+
+    num1 = Number(inputScreen.textContent); // Set  display and opMath
+
+    var keyMathValue = keyMath.textContent;
     inputScreen.textContent = keyMathValue;
 
     if (!opMathVal) {
       console.log("check value op");
       opMath = inputScreen.textContent;
       opMathVal = true;
-    }
-  });
-});
+    } // Check where are we
+    // console.log(num1, opMath, num2, opMathVal);
 
-// -take decimal and check
-keyValDec.addEventListener("click", () => {
+  });
+}); // -take decimal and check
+
+keyValDec.addEventListener("click", function () {
   if (!checkIfOn()) {
     return;
   }
+
   inputScreen.innerHTML += ".";
 });
-
-keyValResult.addEventListener("click", () => {
+keyValResult.addEventListener("click", function () {
   if (!checkIfOn()) {
     return;
   }
+
   console.log(inputScreen.innerHTML);
   num2 = Number(inputScreen.textContent.substring(1));
   console.log(num1, opMath, num2, opMathVal);
@@ -116,34 +118,41 @@ keyValResult.addEventListener("click", () => {
   opMathVal = false;
   num1 = 0;
   num2 = 0;
-});
+}); // Calauclate the result
 
-// Calauclate the result
-const calculate = (num1, operator, num2) => {
+var calculate = function calculate(num1, operator, num2) {
   switch (operator) {
     case "+":
+      // console.log(num1, num2, operator);
       return num1 + num2;
       break;
+
     case "-":
       return num1 - num2;
       break;
+
     case "X":
       return num1 * num2;
       break;
+
     case "%":
       return num1 * (num2 / 100);
       break;
+
     case "√":
       return Math.SQRT(num1);
       break;
+
     case "/":
       if (num2 === 0) {
         return "#DIV/0!";
       } else {
         return num1 / num2;
       }
+
       break;
+
     default:
-      `unsupported operator: ${operator}`;
+      "unsupported operator: ".concat(operator);
   }
 };

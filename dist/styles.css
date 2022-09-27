@@ -40,51 +40,22 @@ h4 {
   margin-bottom: 15px;
 }
 
-@media only screen and (max-width: 800px) {
-  h1 {
-    align-items: center;
-    text-align: center;
-    font-size: px;
-    padding: 0;
-  }
-
-  h2 {
-    text-align: center;
-    font-style: italic;
-    font-size: 15px;
-    color: red;
-  }
-
-  h4 {
-    text-align: center;
-    font-style: italic;
-    padding: 10px 10px 20px 10px;
-    color: black;
-  }
-}
 main {
+  width: 500px;
   align-items: center;
   border-radius: 10px;
-  padding: 0;
+  padding: 0px;
   border: 2px solid #ccc;
   box-sizing: border-box;
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 @media only screen and (max-width: 800px) {
   main {
-    width: 450px;
-    align-items: center;
-    border-radius: 10px;
-    padding: 0;
-    border: 2px solid #ccc;
-    box-sizing: border-box;
-    position: absolute;
+    width: 500px;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
   }
 }
 main .grid-table {
@@ -111,14 +82,6 @@ main .grid-table .box {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 10px;
 }
-@media only screen and (min-width: 800px) {
-  main .grid-table .box {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 10px;
-  }
-}
 main .grid-table .box .key {
   /* grid-area: key; */
   width: 50px;
@@ -133,18 +96,8 @@ main .grid-table .box .key {
   border-style: groove;
   text-align: center;
 }
-@media only screen and (min-width: 800px) {
+@media only screen and (max-width: 800px) {
   main .grid-table .box .key {
-    width: 30px;
-    margin: auto;
-    padding: 15px;
-    background-color: black;
-    color: whitesmoke;
-    font-size: 15px;
-    font-weight: bold;
-    border: whitesmoke;
-    border-radius: 70%;
-    border-style: groove;
-    text-align: center;
+    font-size: 20px;
   }
 }
