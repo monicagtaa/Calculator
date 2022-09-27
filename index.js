@@ -114,8 +114,8 @@ keyValResult.addEventListener("click", () => {
   inputScreen.textContent = calculate(num1, opMath, num2);
   console.log(num1, opMath, num2, opMathVal);
   opMathVal = false;
-  num1 = 0;
-  num2 = 0;
+  // num1 = 0;
+  // num2 = 0;
 });
 
 // Calauclate the result
